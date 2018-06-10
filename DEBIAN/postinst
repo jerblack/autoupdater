@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-chmod +x /usr/bin/auto_updater
-systemctl enable auto_updater.service
-systemctl enable auto_updater.timer
+chmod +x /usr/bin/autoupdater
+systemctl enable autoupdater.timer

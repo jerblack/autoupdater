@@ -53,3 +53,4 @@ You can also view the current state of the service by running:
 ```bash
 systemctl autoupdater status
 ```
+
