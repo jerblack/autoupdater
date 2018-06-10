@@ -1,4 +1,3 @@
-# https://wiki.archlinux.org/index.php/systemd#Timers
 # lives in /lib/systemd/system/auto_updater.service
 
 [Unit]
@@ -14,6 +13,6 @@ ExecStart=/usr/bin/auto_updater -a -r 03:00
 # -m do not run autoremove (runs by default)
 # -c do not run clean (runs by default)
 
-# systemd logs to journal by default, so all writes to stdout are visible in the journal
+# systemd logs to journal by default, and all writes to stdout are visible in the journal
 # run the following to view logs for this service:
-#       journalctl -u auto_trader.service
+#       journalctl -u auto_updater.service
