@@ -1,4 +1,4 @@
-# lives in /lib/systemd/system/auto_updater.timer
+# lives in /lib/systemd/system/autoupdater.timer
 
 [Unit]
 Description=Periodically runs the auto_updater service
@@ -8,7 +8,7 @@ Description=Periodically runs the auto_updater service
 OnBootSec=10min
 # Time between running each consecutive time
 OnUnitActiveSec=12h
-Unit=auto_updater.service
+Unit=autoupdater.service
 
 [Install]
 WantedBy=multi-user.target
