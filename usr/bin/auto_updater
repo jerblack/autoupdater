@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# this file lives in /usr/bin/auto_updater
+
+# Automatically run apt-get commands update, upgrade, autoremove, autoclean
+#   will also reboot if one is required
+#
+# options
+# -a automatically reboot if needed (does not reboot by default)
+# -r when to reboot if needed (now, 3:00 (3am on 24 hr clock), 18:00 (6pm on 24 hr clock), +2h)
+# -m do not run autoremove (runs by default)
+# -c do not run clean (runs by default)
+
+echo Running apt-get update
+apt-get update
+echo Running apt-get upgrade -y
+apt-get upgrade -y
+
+AUTOREMOVE=true
+AUTOCLEAN=true
+AUTOREBOOT=false
+REBOOT_TIME='03:00'
+
+true
+while getopts ":mcar:" option; do
+case ${option} in
+m )
+echo Autoremove was disabled with -m
+AUTOREMOVE=false;;
+c )
+echo Autoclean was disabled with -c
+AUTOCLEAN=false;;
+a )
+echo Autoreboot was enabled with -a
+AUTOREBOOT=true;;
+r )
+REBOOT_TIME=${OPTARG}
+echo Autoreboot time was set to $REBOOT_TIME;;
+esac
+done
+
+if $AUTOREMOVE; then
+    echo Running apt-get autoremove -y
+    apt-get autoremove -y
+fi
+if $AUTOCLEAN; then
+    echo Running apt-get autoclean -y
+    apt-get autoclean -y
+fi
+if $AUTOREBOOT; then
+    if [ -f /var/run/reboot-required ]; then
+        echo Reboot is required, setting restart time of $REBOOT_TIME
+        shutdown -r $REBOOT_TIME
+    else
+        echo No reboot is required
+    fi
+fi
