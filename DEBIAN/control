@@ -1,6 +1,6 @@
-Package: auto_updater
+Package: autoupdater
 Version: 0.1
 Maintainer: Jeremy Black
 Architecture: all
-Description: auto_updater will automatically run the following apt actions on a schedule you specify; update, upgrade, autoclean, autoremove. It will also optionally restart when needed.
-Homepage: https://github.com/jerblack/auto_updater
+Description: autoupdater will automatically run the following apt actions on a schedule you specify; update, upgrade, autoclean, autoremove. It will also optionally restart when needed.
+Homepage: https://github.com/jerblack/autoupdater
