@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# this file lives in /usr/bin/auto_updater
+# this file lives in /usr/bin/autoupdater
 
 # Automatically run apt-get commands update, upgrade, autoremove, autoclean
 #   will also reboot if one is required
