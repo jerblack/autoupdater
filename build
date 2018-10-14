@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd ~ # or parent of ./autoupdater
 sudo chown root:root ./autoupdater -R
-sudo chown 0755 ./autoupdater -R
+sudo chmod 0755 ./autoupdater -R
 sudo dpkg -b ./autoupdater
 # creates ~/autoupdater.deb
